@@ -24,26 +24,7 @@ if t.TYPE_CHECKING:  # pragma: no cover
 
 
 class EnvironBuilder(werkzeug.test.EnvironBuilder):
-    """An :class:`~werkzeug.test.EnvironBuilder`, that takes defaults from the
-    application.
 
-    :param app: The Flask application to configure the environment from.
-    :param path: URL path being requested.
-    :param base_url: Base URL where the app is being served, which
-        ``path`` is relative to. If not given, built from
-        :data:`PREFERRED_URL_SCHEME`, ``subdomain``,
-        :data:`SERVER_NAME`, and :data:`APPLICATION_ROOT`.
-    :param subdomain: Subdomain name to append to :data:`SERVER_NAME`.
-    :param url_scheme: Scheme to use instead of
-        :data:`PREFERRED_URL_SCHEME`.
-    :param json: If given, this is serialized as JSON and passed as
-        ``data``. Also defaults ``content_type`` to
-        ``application/json``.
-    :param args: other positional arguments passed to
-        :class:`~werkzeug.test.EnvironBuilder`.
-    :param kwargs: other keyword arguments passed to
-        :class:`~werkzeug.test.EnvironBuilder`.
-    """
 
     def __init__(
         self,
@@ -91,6 +72,7 @@ class EnvironBuilder(werkzeug.test.EnvironBuilder):
         The serialization will be configured according to the config associated
         with this EnvironBuilder's ``app``.
         """
+        print("testing")
         return self.app.json.dumps(obj, **kwargs)
 
 

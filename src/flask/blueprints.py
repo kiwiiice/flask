@@ -69,6 +69,7 @@ class Blueprint(SansioBlueprint):
 
         .. versionadded:: 0.9
         """
+        print("hello")
         value = current_app.config["SEND_FILE_MAX_AGE_DEFAULT"]
 
         if value is None:
@@ -81,14 +82,7 @@ class Blueprint(SansioBlueprint):
 
     def send_static_file(self, filename: str) -> Response:
         """The view function used to serve files from
-        :attr:`static_folder`. A route is automatically registered for
-        this view at :attr:`static_url_path` if :attr:`static_folder` is
-        set.
 
-        Note this is a duplicate of the same method in the Flask
-        class.
-
-        .. versionadded:: 0.5
 
         """
         if not self.has_static_folder:
